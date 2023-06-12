@@ -6,15 +6,48 @@
 //
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct ListView: View {
+    @StateObject var viewModel: ListVM
+    @FirestoreQuery var items: [ListItem]
+    
+    init(userId: String) {
+        self._viewModel = StateObject(wrappedValue: ListVM(userId: userId))
+        self._items = FirestoreQuery(collectionPath: "users/\(userId)/todos")
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                List(items) { item in
+                    ListItemView(item: item)
+                        .swipeActions {
+                            Button("Delete") {
+                                viewModel.deleteItem(id: item.id)
+                            }
+                            .tint(.red)
+                        }
+                }
+                .listStyle(InsetGroupedListStyle())
+            }
+            .navigationTitle("Listify")
+            .toolbar {
+                Button {
+                    viewModel.showingNewItemView = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $viewModel.showingNewItemView) {
+                CreateNewItemView(newItemPresented: $viewModel.showingNewItemView)
+            }
+        }
     }
 }
 
 struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(userId: "")
     }
 }

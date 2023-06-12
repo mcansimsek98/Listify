@@ -19,7 +19,11 @@ class LoginVM: ObservableObject {
         guard validate() else {
             return
         }
-        Auth.auth().signIn(withEmail: email, password: password)
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
+            if error != nil {
+                self?.errorMessage = "The user could not be found."
+            }
+        }
     }
     
     private func validate() -> Bool {

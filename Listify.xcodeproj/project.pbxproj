@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B28388402A37ABAB0001FCBB /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B283883F2A37ABAB0001FCBB /* BackButton.swift */; };
+		B28388492A37B1F40001FCBB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28388482A37B1F40001FCBB /* Launch Screen.storyboard */; };
 		B2A9C8E22A375A3D0015F28F /* ListifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C8E12A375A3D0015F28F /* ListifyApp.swift */; };
 		B2A9C8E42A375A3D0015F28F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C8E32A375A3D0015F28F /* MainView.swift */; };
 		B2A9C8E62A375A3E0015F28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2A9C8E52A375A3E0015F28F /* Assets.xcassets */; };
@@ -32,9 +34,12 @@
 		B2A9C9462A37632B0015F28F /* ListItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C9452A37632B0015F28F /* ListItemVM.swift */; };
 		B2A9C94B2A37671A0015F28F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C94A2A37671A0015F28F /* HeaderView.swift */; };
 		B2A9C94E2A376F770015F28F /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C94D2A376F770015F28F /* TLButton.swift */; };
+		B2A9C9512A377C1C0015F28F /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C9502A377C1C0015F28F /* Encodable+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B283883F2A37ABAB0001FCBB /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		B28388482A37B1F40001FCBB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B2A9C8DE2A375A3D0015F28F /* Listify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A9C8E12A375A3D0015F28F /* ListifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListifyApp.swift; sourceTree = "<group>"; };
 		B2A9C8E32A375A3D0015F28F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 		B2A9C9452A37632B0015F28F /* ListItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemVM.swift; sourceTree = "<group>"; };
 		B2A9C94A2A37671A0015F28F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B2A9C94D2A376F770015F28F /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
+		B2A9C9502A377C1C0015F28F /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B283883E2A37AB9C0001FCBB /* BackButton */ = {
+			isa = PBXGroup;
+			children = (
+				B283883F2A37ABAB0001FCBB /* BackButton.swift */,
+			);
+			path = BackButton;
+			sourceTree = "<group>";
+		};
 		B2A9C8D52A375A3D0015F28F = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				B2A9C8FC2A375E030015F28F /* App */,
+				B2A9C94F2A377BFD0015F28F /* Extension */,
 				B2A9C8FB2A375DC50015F28F /* Models */,
 				B2A9C8F92A375DA20015F28F /* Moduls */,
 				B2A9C91A2A37602F0015F28F /* CustomViews */,
@@ -128,6 +143,7 @@
 				B2A9C9262A3761650015F28F /* ListView */,
 				B2A9C9282A37617B0015F28F /* ProfileView */,
 				B2A9C92A2A3761900015F28F /* CreateNewItemView */,
+				B2A9C9442A3763150015F28F /* ListItemView */,
 			);
 			path = Moduls;
 			sourceTree = "<group>";
@@ -146,6 +162,7 @@
 			children = (
 				B2A9C8E12A375A3D0015F28F /* ListifyApp.swift */,
 				B2A9C8E52A375A3E0015F28F /* Assets.xcassets */,
+				B28388482A37B1F40001FCBB /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -153,9 +170,9 @@
 		B2A9C91A2A37602F0015F28F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B283883E2A37AB9C0001FCBB /* BackButton */,
 				B2A9C94C2A376F4D0015F28F /* TLButton */,
 				B2A9C9492A3767090015F28F /* HeaderView */,
-				B2A9C9442A3763150015F28F /* ListItemView */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -351,6 +368,14 @@
 			path = TLButton;
 			sourceTree = "<group>";
 		};
+		B2A9C94F2A377BFD0015F28F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B2A9C9502A377C1C0015F28F /* Encodable+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -419,6 +444,7 @@
 			files = (
 				B2A9C8E92A375A3E0015F28F /* Preview Assets.xcassets in Resources */,
 				B2A9C8E62A375A3E0015F28F /* Assets.xcassets in Resources */,
+				B28388492A37B1F40001FCBB /* Launch Screen.storyboard in Resources */,
 				B2A9C8F82A375C010015F28F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +461,7 @@
 				B2A9C9302A3761C60015F28F /* ListItem.swift in Sources */,
 				B2A9C9132A375FCA0015F28F /* LoginView.swift in Sources */,
 				B2A9C9462A37632B0015F28F /* ListItemVM.swift in Sources */,
+				B28388402A37ABAB0001FCBB /* BackButton.swift in Sources */,
 				B2A9C8E42A375A3D0015F28F /* MainView.swift in Sources */,
 				B2A9C9072A375F3B0015F28F /* ProfileView.swift in Sources */,
 				B2A9C94E2A376F770015F28F /* TLButton.swift in Sources */,
@@ -443,6 +470,7 @@
 				B2A9C93D2A37625A0015F28F /* RegisterVM.swift in Sources */,
 				B2A9C92E2A3761BB0015F28F /* User.swift in Sources */,
 				B2A9C91C2A37604F0015F28F /* ListItemView.swift in Sources */,
+				B2A9C9512A377C1C0015F28F /* Encodable+Extension.swift in Sources */,
 				B2A9C8E22A375A3D0015F28F /* ListifyApp.swift in Sources */,
 				B2A9C9092A375F490015F28F /* ListView.swift in Sources */,
 				B2A9C9362A3762060015F28F /* ProfileVM.swift in Sources */,
@@ -584,6 +612,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -613,6 +642,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import SwiftUI
 
 class RegisterVM : ObservableObject {
     @Published var name: String = ""
@@ -21,6 +22,9 @@ class RegisterVM : ObservableObject {
         guard validate() else { return }
         
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, errorMessage in
+            if let errorMessage = errorMessage {
+                self?.errorMessage = "use_by_another_account"
+            }
             guard let userId = result?.user.uid else { return }
             self?.insertUserRecord(id: userId)
         }
@@ -28,8 +32,11 @@ class RegisterVM : ObservableObject {
     
     private func insertUserRecord(id: String) {
         let newUser = User(id: id,
+                           profilePhoto: nil,
                            name: name,
                            email: email,
+                           birthday: nil,
+                           location: nil,
                            joined: Date().timeIntervalSince1970)
         
         let db = Firestore.firestore()
@@ -43,15 +50,15 @@ class RegisterVM : ObservableObject {
         guard !name.trimmingCharacters(in: .whitespaces).isEmpty,
                 !email.trimmingCharacters(in: .whitespaces).isEmpty,
                 !password.trimmingCharacters(in: .whitespaces).isEmpty else {
-            errorMessage = "The Full Name, Email or Password cannot be left blank."
+            errorMessage = "error_name_email_password"
             return false
         }
         guard email.contains("@") && email.contains(".") else {
-            errorMessage = "Enter a valid email address"
+            errorMessage = "enter_valid_email"
             return false
         }
         guard password.count >= 6 else {
-            errorMessage = "Your password must be 6 characters or more."
+            errorMessage = "error_password"
             return false
         }
         return true

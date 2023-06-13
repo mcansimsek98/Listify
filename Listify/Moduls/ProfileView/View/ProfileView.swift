@@ -16,10 +16,32 @@ struct ProfileView: View {
                 if let user = viewModel.user {
                     profile(user: user)
                 }else {
-                    Text("Loading Profile....")
+                    Text(LocalizedStringKey("loading_profile"))
                 }
             }
-            .navigationTitle("Profile")
+            .navigationTitle(LocalizedStringKey("profile"))
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button(LocalizedStringKey("log_out")) {
+                        viewModel.logOut()
+                    }
+                    .tint(.red)
+                }
+                
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(LocalizedStringKey("edit")) {
+                        viewModel.showingEditView = true
+                    }
+                    .bold()
+                    .tint(.teal)
+                }
+            }
+            .fullScreenCover(isPresented: $viewModel.showingEditView) {
+                EditProfileView(editProfilePresented: $viewModel.showingEditView)
+                    .onDisappear {
+                        viewModel.fetchUser()
+                    }
+            }
         }
         .onAppear {
             viewModel.fetchUser()
@@ -29,43 +51,76 @@ struct ProfileView: View {
     @ViewBuilder
     func profile(user: User) -> some View {
         // Avatar
-        Image(systemName: "person.circle")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .foregroundColor(Color.teal)
-            .frame(width: 125, height: 125)
-            .padding(.bottom, 16)
+        if let imageUrl = viewModel.user?.profilePhoto {
+            AsyncImage(url: imageUrl) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 125, height: 125)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.teal, lineWidth: 2))
+            } placeholder: {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color.teal)
+                    .frame(width: 125, height: 125)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.teal, lineWidth: 2))
+            }
+        } else {
+            Image(systemName: "person.circle")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(Color.teal)
+                .frame(width: 125, height: 125)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.teal, lineWidth: 2))
+        }
         // Info
-        
         VStack(alignment: .leading) {
             HStack {
-                Text("Name:")
+                Text(LocalizedStringKey("title"))
                     .bold()
                 Text(user.name)
             }
             .padding()
             HStack {
-                Text("Email:")
+                Text(LocalizedStringKey("email"))
                     .bold()
                 Text(user.email)
             }
             .padding()
-
+            
+            if let birthday = viewModel.user?.birthday,
+               !birthday.trimmingCharacters(in: .whitespaces).isEmpty {
+                HStack {
+                    Text(LocalizedStringKey("birthday"))
+                        .bold()
+                    Text(birthday)
+                }
+                .padding()
+            }
+            
+            if let location = viewModel.user?.location,
+               !location.trimmingCharacters(in: .whitespaces).isEmpty {
+                HStack {
+                    Text(LocalizedStringKey("location"))
+                        .bold()
+                    Text(location)
+                }
+                .padding()
+            }
+            
             HStack {
-                Text("Member Since:")
+                Text(LocalizedStringKey("member_since"))
                     .bold()
                 Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
             }
             .padding()
-
+            
         }
         .padding()
-        
-        Button("Log Out") {
-            viewModel.logOut()
-        }
-        .tint(.red)
-        .padding(.bottom, 50)
         Spacer()
     }
 }

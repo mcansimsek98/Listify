@@ -13,22 +13,22 @@ struct RegisterView: View {
     var body: some View {
         VStack {
             //Header
-            HeaderView(title: "Register",
-                        subTitle: "Start Organizing Listify",
+            HeaderView(title: LocalizedStringKey("register"),
+                        subTitle: LocalizedStringKey("star_organizing"),
                        angle: -15,
                        backgrundColor: .teal)
             Form {
                 if !viewModel.errorMessage.trimmingCharacters(in: .whitespaces).isEmpty {
-                    Text(viewModel.errorMessage)
+                    Text(LocalizedStringKey(viewModel.errorMessage))
                         .foregroundColor(.red)
                         .font(.system(size: 12))
                 }
-                TextField("Full Name", text: $viewModel.name)
+                TextField(LocalizedStringKey("name"), text: $viewModel.name)
                     .autocorrectionDisabled()
-                TextField("Email Adress", text: $viewModel.email)
+                TextField(LocalizedStringKey("e_posta"), text: $viewModel.email)
                     .autocapitalization(.none)
-                SecureField("Password", text: $viewModel.password)
-                TLButton(title: "Create Account", backgroundColor: Color.teal, action: {
+                SecureField(LocalizedStringKey("password"), text: $viewModel.password)
+                TLButton(title: LocalizedStringKey("create_account"), backgroundColor: Color.teal, action: {
                     viewModel.createAccount()
                 })
             }

@@ -22,11 +22,11 @@ struct MainView: View {
         TabView {
             ListView(userId: viewModel.currentUserId)
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label(LocalizedStringKey("home"), systemImage: "house")
                 }
             ProfileView()
                 .tabItem {
-                    Label("Profile", systemImage: "person.circle")
+                    Label(LocalizedStringKey("profile"), systemImage: "person.circle")
                 }
         }
         .accentColor(.teal)

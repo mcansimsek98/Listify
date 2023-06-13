@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import SwiftUI
 
 class LoginVM: ObservableObject {
     @Published var email = ""
@@ -21,19 +22,20 @@ class LoginVM: ObservableObject {
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
             if error != nil {
-                self?.errorMessage = "The user could not be found."
+                self?.errorMessage = "not_found_user"
             }
         }
+        self.objectWillChange.send()
     }
     
     private func validate() -> Bool {
         errorMessage = ""
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty, !password.trimmingCharacters(in: .whitespaces).isEmpty else {
-            errorMessage = "The Email or Password cannot be left blank."
+            errorMessage = "left_blank_email_or_password"
             return false
         }
         guard email.contains("@") && email.contains(".") else {
-            errorMessage = "Enter a valid email address"
+            errorMessage = "enter_valid_email"
             return false
         }
         return true

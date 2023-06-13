@@ -23,7 +23,7 @@ struct ListView: View {
                 List(items) { item in
                     ListItemView(item: item)
                         .swipeActions {
-                            Button("Delete") {
+                            Button(LocalizedStringKey("delete")) {
                                 viewModel.deleteItem(id: item.id)
                             }
                             .tint(.red)

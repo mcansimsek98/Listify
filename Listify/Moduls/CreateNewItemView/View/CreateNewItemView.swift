@@ -13,19 +13,19 @@ struct CreateNewItemView: View {
     
     var body: some View {
         VStack {
-            Text("New Item")
+            Text(LocalizedStringKey("new_plan"))
                 .font(.system(size: 32))
                 .bold()
                 .padding(.top, 70)
             
             Form {
                 // Title
-                TextField("Name", text: $viewModel.title)
+                TextField(LocalizedStringKey("enter_plan"), text: $viewModel.title)
                 // Due Date
-                DatePicker.init("Due Date", selection: $viewModel.dueDate)
+                DatePicker.init(LocalizedStringKey("due_date"), selection: $viewModel.dueDate)
                     .datePickerStyle(GraphicalDatePickerStyle())
                 // Button
-                TLButton(title: "Save",
+                TLButton(title: LocalizedStringKey("save"),
                          backgroundColor: .brown
                 ) {
                     if viewModel.canSave {
@@ -37,8 +37,8 @@ struct CreateNewItemView: View {
                 }
             }
             .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Error"),
-                      message: Text("Please feel in all fields and select due date that is today or newer."))
+                Alert(title: Text(LocalizedStringKey("error")),
+                      message: Text(LocalizedStringKey("fill_in_all")))
             }
         }
     }

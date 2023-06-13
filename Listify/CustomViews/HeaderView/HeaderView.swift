@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
-    let title: String
-    let subTitle: String
+    let title: LocalizedStringKey
+    let subTitle: LocalizedStringKey
     let angle: Double
     let backgrundColor: Color
     
@@ -24,7 +24,7 @@ struct HeaderView: View {
                     .foregroundColor(Color.white)
                     .bold()
                 Text(subTitle)
-                    .font(.system(size: 30))
+                    .font(.system(size: 25))
                     .foregroundColor(Color.white)
             }
             .padding(.top, 85)

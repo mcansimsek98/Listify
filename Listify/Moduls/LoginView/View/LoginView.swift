@@ -15,28 +15,28 @@ struct LoginView: View {
             VStack {
                 //Header
                 HeaderView(title: "Listify",
-                           subTitle: "Achieve Your Goals",
+                           subTitle: LocalizedStringKey("achieve_your_goals"),
                            angle: 15,
                            backgrundColor: .gray)
                 //LoginForm
                 Form {
                     if !viewModel.errorMessage.trimmingCharacters(in: .whitespaces).isEmpty {
-                        Text(viewModel.errorMessage)
+                        Text(LocalizedStringKey(viewModel.errorMessage))
                             .foregroundColor(.red)
                             .font(.system(size: 12))
                     }
-                    TextField("Email Adress", text: $viewModel.email)
+                    TextField(LocalizedStringKey("e_posta"), text: $viewModel.email)
                         .autocapitalization(.none)
-                    SecureField("Password", text: $viewModel.password)
-                    TLButton(title: "Log In", backgroundColor: Color.gray, action: {
+                    SecureField(LocalizedStringKey("password"), text: $viewModel.password)
+                    TLButton(title: LocalizedStringKey("log_in"), backgroundColor: Color.gray, action: {
                         viewModel.login()
                     })
                 }
                 .offset(y: -50)
                 //Create Account
                 VStack {
-                    Text("New around here?")
-                    NavigationLink("Create An Account") {
+                    Text(LocalizedStringKey("new_around"))
+                    NavigationLink(LocalizedStringKey("create_account")) {
                         RegisterView()
                     }
                 }

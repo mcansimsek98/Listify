@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B213727D2A384DB4000E94E1 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213727C2A384DB4000E94E1 /* EditProfileView.swift */; };
+		B21372802A384DCA000E94E1 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B213727F2A384DCA000E94E1 /* EditProfileVM.swift */; };
+		B21372822A38678A000E94E1 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21372812A38678A000E94E1 /* ImagePicker.swift */; };
+		B21372862A386AAD000E94E1 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = B21372852A386AAD000E94E1 /* URLImage */; };
+		B21372892A387265000E94E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B21372882A387265000E94E1 /* FirebaseStorage */; };
 		B28388402A37ABAB0001FCBB /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B283883F2A37ABAB0001FCBB /* BackButton.swift */; };
 		B28388492A37B1F40001FCBB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28388482A37B1F40001FCBB /* Launch Screen.storyboard */; };
 		B2A9C8E22A375A3D0015F28F /* ListifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C8E12A375A3D0015F28F /* ListifyApp.swift */; };
@@ -35,9 +40,15 @@
 		B2A9C94B2A37671A0015F28F /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C94A2A37671A0015F28F /* HeaderView.swift */; };
 		B2A9C94E2A376F770015F28F /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C94D2A376F770015F28F /* TLButton.swift */; };
 		B2A9C9512A377C1C0015F28F /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C9502A377C1C0015F28F /* Encodable+Extension.swift */; };
+		B2CFB4432A38DA19004EDC00 /* DatePickerString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB4422A38DA19004EDC00 /* DatePickerString.swift */; };
+		B2CFB4462A38E7AE004EDC00 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B2CFB4452A38E7AE004EDC00 /* SDWebImage */; };
+		B2CFB4632A38F3BF004EDC00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2CFB4652A38F3BF004EDC00 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B213727C2A384DB4000E94E1 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		B213727F2A384DCA000E94E1 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
+		B21372812A38678A000E94E1 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B283883F2A37ABAB0001FCBB /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		B28388482A37B1F40001FCBB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B2A9C8DE2A375A3D0015F28F /* Listify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +75,9 @@
 		B2A9C94A2A37671A0015F28F /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B2A9C94D2A376F770015F28F /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
 		B2A9C9502A377C1C0015F28F /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		B2CFB4422A38DA19004EDC00 /* DatePickerString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerString.swift; sourceTree = "<group>"; };
+		B2CFB4642A38F3BF004EDC00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B2CFB4662A38F3C5004EDC00 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +85,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CFB4462A38E7AE004EDC00 /* SDWebImage in Frameworks */,
 				B2A9C8F12A375B220015F28F /* FirebaseAuth in Frameworks */,
 				B2A9C8F32A375B220015F28F /* FirebaseFirestore in Frameworks */,
+				B21372862A386AAD000E94E1 /* URLImage in Frameworks */,
+				B21372892A387265000E94E1 /* FirebaseStorage in Frameworks */,
 				B2A9C8F52A375B220015F28F /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +97,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B213727A2A384D88000E94E1 /* EditProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				B213727E2A384DB8000E94E1 /* ViewModel */,
+				B213727B2A384D9C000E94E1 /* View */,
+			);
+			path = EditProfileView;
+			sourceTree = "<group>";
+		};
+		B213727B2A384D9C000E94E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B213727C2A384DB4000E94E1 /* EditProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B213727E2A384DB8000E94E1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B213727F2A384DCA000E94E1 /* EditProfileVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B21372832A38678F000E94E1 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				B21372812A38678A000E94E1 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		B21372872A387265000E94E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B283883E2A37AB9C0001FCBB /* BackButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +150,7 @@
 			children = (
 				B2A9C8E02A375A3D0015F28F /* Listify */,
 				B2A9C8DF2A375A3D0015F28F /* Products */,
+				B21372872A387265000E94E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +202,7 @@
 				B2A9C9282A37617B0015F28F /* ProfileView */,
 				B2A9C92A2A3761900015F28F /* CreateNewItemView */,
 				B2A9C9442A3763150015F28F /* ListItemView */,
+				B213727A2A384D88000E94E1 /* EditProfileView */,
 			);
 			path = Moduls;
 			sourceTree = "<group>";
@@ -163,6 +222,7 @@
 				B2A9C8E12A375A3D0015F28F /* ListifyApp.swift */,
 				B2A9C8E52A375A3E0015F28F /* Assets.xcassets */,
 				B28388482A37B1F40001FCBB /* Launch Screen.storyboard */,
+				B2CFB4652A38F3BF004EDC00 /* Localizable.strings */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -170,9 +230,11 @@
 		B2A9C91A2A37602F0015F28F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B2CFB4412A38DA07004EDC00 /* DatePickerString */,
 				B283883E2A37AB9C0001FCBB /* BackButton */,
 				B2A9C94C2A376F4D0015F28F /* TLButton */,
 				B2A9C9492A3767090015F28F /* HeaderView */,
+				B21372832A38678F000E94E1 /* ImagePicker */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -376,6 +438,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		B2CFB4412A38DA07004EDC00 /* DatePickerString */ = {
+			isa = PBXGroup;
+			children = (
+				B2CFB4422A38DA19004EDC00 /* DatePickerString.swift */,
+			);
+			path = DatePickerString;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,6 +466,9 @@
 				B2A9C8F02A375B220015F28F /* FirebaseAuth */,
 				B2A9C8F22A375B220015F28F /* FirebaseFirestore */,
 				B2A9C8F42A375B220015F28F /* FirebaseFirestoreSwift */,
+				B21372852A386AAD000E94E1 /* URLImage */,
+				B21372882A387265000E94E1 /* FirebaseStorage */,
+				B2CFB4452A38E7AE004EDC00 /* SDWebImage */,
 			);
 			productName = Listify;
 			productReference = B2A9C8DE2A375A3D0015F28F /* Listify.app */;
@@ -423,10 +496,13 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = B2A9C8D52A375A3D0015F28F;
 			packageReferences = (
 				B2A9C8EF2A375B220015F28F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B21372842A386AAD000E94E1 /* XCRemoteSwiftPackageReference "url-image" */,
+				B2CFB4442A38E7AE004EDC00 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = B2A9C8DF2A375A3D0015F28F /* Products */;
 			projectDirPath = "";
@@ -442,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CFB4632A38F3BF004EDC00 /* Localizable.strings in Resources */,
 				B2A9C8E92A375A3E0015F28F /* Preview Assets.xcassets in Resources */,
 				B2A9C8E62A375A3E0015F28F /* Assets.xcassets in Resources */,
 				B28388492A37B1F40001FCBB /* Launch Screen.storyboard in Resources */,
@@ -463,18 +540,22 @@
 				B2A9C9462A37632B0015F28F /* ListItemVM.swift in Sources */,
 				B28388402A37ABAB0001FCBB /* BackButton.swift in Sources */,
 				B2A9C8E42A375A3D0015F28F /* MainView.swift in Sources */,
+				B2CFB4432A38DA19004EDC00 /* DatePickerString.swift in Sources */,
 				B2A9C9072A375F3B0015F28F /* ProfileView.swift in Sources */,
 				B2A9C94E2A376F770015F28F /* TLButton.swift in Sources */,
+				B21372802A384DCA000E94E1 /* EditProfileVM.swift in Sources */,
 				B2A9C9182A375FFA0015F28F /* RegisterView.swift in Sources */,
 				B2A9C90D2A375F960015F28F /* CreateNewItemView.swift in Sources */,
 				B2A9C93D2A37625A0015F28F /* RegisterVM.swift in Sources */,
 				B2A9C92E2A3761BB0015F28F /* User.swift in Sources */,
 				B2A9C91C2A37604F0015F28F /* ListItemView.swift in Sources */,
+				B213727D2A384DB4000E94E1 /* EditProfileView.swift in Sources */,
 				B2A9C9512A377C1C0015F28F /* Encodable+Extension.swift in Sources */,
 				B2A9C8E22A375A3D0015F28F /* ListifyApp.swift in Sources */,
 				B2A9C9092A375F490015F28F /* ListView.swift in Sources */,
 				B2A9C9362A3762060015F28F /* ProfileVM.swift in Sources */,
 				B2A9C9332A3761F80015F28F /* CreateNewItemVM.swift in Sources */,
+				B21372822A38678A000E94E1 /* ImagePicker.swift in Sources */,
 				B2A9C9402A37626C0015F28F /* LoginVM.swift in Sources */,
 				B2A9C9432A37627D0015F28F /* MainVM.swift in Sources */,
 			);
@@ -482,11 +563,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		B2CFB4652A38F3BF004EDC00 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2CFB4642A38F3BF004EDC00 /* en */,
+				B2CFB4662A38F3C5004EDC00 /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		B2A9C8EA2A375A3E0015F28F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -547,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -681,6 +776,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B21372842A386AAD000E94E1 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		B2A9C8EF2A375B220015F28F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -689,9 +792,27 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		B2CFB4442A38E7AE004EDC00 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B21372852A386AAD000E94E1 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B21372842A386AAD000E94E1 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		B21372882A387265000E94E1 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2A9C8EF2A375B220015F28F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		B2A9C8F02A375B220015F28F /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B2A9C8EF2A375B220015F28F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -706,6 +827,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B2A9C8EF2A375B220015F28F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		B2CFB4452A38E7AE004EDC00 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2CFB4442A38E7AE004EDC00 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

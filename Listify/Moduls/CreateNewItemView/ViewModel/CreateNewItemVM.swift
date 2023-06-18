@@ -13,7 +13,19 @@ class CreateNewItemVM: ObservableObject {
     @Published var title: String = ""
     @Published var dueDate = Date()
     @Published var showAlert: Bool = false
-
+    
+    @Published var selectedCategoryIndex: Int = 0
+    @Published var categories: [String] = [
+        "personal",
+        "work",
+        "education",
+        "trip",
+        "shopping",
+        "events",
+        "home",
+        "health"
+    ]
+    
     init() {}
     
     func saved() {
@@ -26,6 +38,7 @@ class CreateNewItemVM: ObservableObject {
                                title: title,
                                dueDate: dueDate.timeIntervalSince1970,
                                createDate: Date().timeIntervalSince1970,
+                               categoryName: categories[selectedCategoryIndex],
                                isDone: false)
         
         let db = Firestore.firestore()

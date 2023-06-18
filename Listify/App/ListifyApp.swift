@@ -7,15 +7,21 @@
 
 import SwiftUI
 import Firebase
+import IQKeyboardManagerSwift
 
 @main
 struct ListifyApp: App {
+    @ObservedObject var languageManager = LanguageManager()
+
     init() {
         FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
     }
     var body: some Scene {
         WindowGroup {
             MainView()
+                .background(Color(UIColor.systemGray5))
+                .environmentObject(languageManager)
         }
     }
 }

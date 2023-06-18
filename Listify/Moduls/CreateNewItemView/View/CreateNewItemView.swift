@@ -12,35 +12,76 @@ struct CreateNewItemView: View {
     @Binding var newItemPresented: Bool
     
     var body: some View {
-        VStack {
-            Text(LocalizedStringKey("new_plan"))
-                .font(.system(size: 32))
-                .bold()
-                .padding(.top, 70)
-            
-            Form {
-                // Title
-                TextField(LocalizedStringKey("enter_plan"), text: $viewModel.title)
-                // Due Date
-                DatePicker.init(LocalizedStringKey("due_date"), selection: $viewModel.dueDate)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                // Button
-                TLButton(title: LocalizedStringKey("save"),
-                         backgroundColor: .brown
-                ) {
-                    if viewModel.canSave {
-                        viewModel.saved()
-                        newItemPresented = false
-                    }else {
-                        viewModel.showAlert = true
+        ZStack {
+            Color(UIColor.systemGray5)
+            VStack {
+                ZStack {
+                    CustomHeaderView(title: "new_plan")
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button {
+                            newItemPresented = false
+                        } label: {
+                            Image(systemName: "clear")
+                                .aspectRatio(contentMode: .fill)
+                                .foregroundColor(.white)
+                                .frame(width: 24, height: 24)
+                        }
+                        .padding(.trailing, 12)
+                        .padding(.top, 30)
+                }
+                }
+                Form {
+                    Section {
+                        // Category
+                        Picker(selection: $viewModel.selectedCategoryIndex, label: Text(LocalizedStringKey("category"))) {
+                            ForEach(viewModel.categories.indices, id: \.self) { index in
+                                Text(LocalizedStringKey(viewModel.categories[index]))
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                    }
+                    
+                    Section {
+                        // Title
+//                        TextField(LocalizedStringKey("enter_plan"), text: $viewModel.title)
+                        PlaceholderTextEditor(placeholder: LocalizedStringKey("enter_plan"), text: $viewModel.title)
+                            .frame(height: 250)
+
+                    }
+                    
+                    Section {
+                        // Due Date
+                        DatePicker.init(LocalizedStringKey("due_date"), selection: $viewModel.dueDate)
+                            .datePickerStyle(.compact)
+                            .padding(4)
+                        // Button
+                        Text(LocalizedStringKey("create_message"))
+                            .font(.system(size: 11))
+                            .foregroundColor(.red)
+                            .padding(.top, 8)
+                        TLButton(title: LocalizedStringKey("save"),
+                                 backgroundColor: .brown
+                        ) {
+                            if viewModel.canSave {
+                                viewModel.saved()
+                                newItemPresented = false
+                            }else {
+                                viewModel.showAlert = true
+                            }
+                        }
                     }
                 }
+                .scrollIndicators(.never)
+                .padding(.top, -6)
             }
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text(LocalizedStringKey("error")),
                       message: Text(LocalizedStringKey("fill_in_all")))
             }
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

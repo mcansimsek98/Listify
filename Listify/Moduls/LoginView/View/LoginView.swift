@@ -9,6 +9,9 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = LoginVM()
+    @State private var isLanguageSelectionVisible = false
+    @EnvironmentObject var languageManager: LanguageManager
+    @Environment(\.locale) private var locale
     
     var body: some View {
         NavigationView {
@@ -43,6 +46,34 @@ struct LoginView: View {
                 .padding(.bottom, 50)
                 
                 Spacer()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isLanguageSelectionVisible = true
+                    }) {
+                        Image(systemName: "globe")
+                    }
+                    .tint(Color.black)
+                }
+            }
+            .actionSheet(isPresented: $isLanguageSelectionVisible) {
+                ActionSheet(
+                    title: Text(LocalizedStringKey("select_language")),
+                    buttons: [
+                        .default(Text("Türkçe"), action: {
+                            languageManager.currentLanguage = "tr"
+                            
+                        }),
+                        .default(Text("English"), action: {
+                            languageManager.currentLanguage = "en"
+                        }),
+                        .cancel()
+                    ]
+                )
+            }
+            .onAppear {
+                languageManager.currentLanguage = locale.languageCode ?? "en"
             }
         }
     }

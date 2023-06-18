@@ -15,36 +15,53 @@ struct EditProfileView: View {
     @State private var isShowingDeleteAlert = false
     
     var body: some View {
-        NavigationView {
+        ZStack {
+            Color(UIColor.systemGray5)
             VStack {
-                if let user = viewModel.user {
-                    profile(user: user)
-                }else {
-                    Text(LocalizedStringKey("loading_profile"))
+                ZStack {
+                    CustomHeaderView(title: "Edit Profile")
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button {
+                                editProfilePresented = false
+                            } label: {
+                                Image(systemName: "clear")
+                                    .aspectRatio(contentMode: .fill)
+                                    .foregroundColor(.white)
+                                    .frame(width: 24, height: 24)
+                            }
+                            .padding(.trailing, 12)
+                            .padding(.top, 30)
+                    }
+                }
+                ZStack {
+                    VStack {
+                        if let user = viewModel.user {
+                            profile(user: user)
+                        }else {
+                            Text(LocalizedStringKey("loading_profile"))
+                            Spacer()
+                        }
+                    }
+                    Spacer()
                 }
             }
-            .navigationTitle(LocalizedStringKey("edit_profile"))
-            .toolbar {
-                Button {
-                    editProfilePresented = false
-                } label: {
-                    Image(systemName: "clear")
-                }
+            .onAppear {
+                viewModel.fetchUser()
+            }
+            .alert(isPresented: $isShowingDeleteAlert) {
+                Alert(
+                    title: Text(LocalizedStringKey("delete_account")),
+                    message: Text(LocalizedStringKey("delete_account_confirmation")),
+                    primaryButton: .destructive(Text(LocalizedStringKey("delete"))) {
+                        viewModel.deleteUser()
+                    },
+                    secondaryButton: .cancel()
+                )
             }
         }
-        .onAppear {
-            viewModel.fetchUser()
-        }
-        .alert(isPresented: $isShowingDeleteAlert) {
-            Alert(
-                title: Text(LocalizedStringKey("delete_account")),
-                message: Text(LocalizedStringKey("delete_account_confirmation")),
-                primaryButton: .destructive(Text(LocalizedStringKey("delete"))) {
-                    viewModel.deleteUser()
-                },
-                secondaryButton: .cancel()
-            )
-        }
+        .edgesIgnoringSafeArea(.all)
     }
     
     @ViewBuilder
@@ -93,6 +110,7 @@ struct EditProfileView: View {
                 ImagePicker(image: $viewModel.selectedPhoto)
             }
         }
+        .padding(.top, 12)
         
         // Info
         

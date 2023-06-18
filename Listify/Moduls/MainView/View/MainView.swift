@@ -11,7 +11,11 @@ struct MainView: View {
     @StateObject var viewModel = MainVM()
     var body: some View {
         if viewModel.isSingedIn, !viewModel.currentUserId.isEmpty {
-            accountView
+            ZStack {
+                Color(UIColor.systemGray5)
+                TabBarView(userId: viewModel.currentUserId)
+            }
+            
         }else {
             LoginView()
         }
@@ -29,7 +33,6 @@ struct MainView: View {
                     Label(LocalizedStringKey("profile"), systemImage: "person.circle")
                 }
         }
-        .accentColor(.teal)
     }
 }
 

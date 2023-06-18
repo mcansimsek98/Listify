@@ -12,6 +12,9 @@
 		B21372822A38678A000E94E1 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21372812A38678A000E94E1 /* ImagePicker.swift */; };
 		B21372862A386AAD000E94E1 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = B21372852A386AAD000E94E1 /* URLImage */; };
 		B21372892A387265000E94E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B21372882A387265000E94E1 /* FirebaseStorage */; };
+		B25F49A92A3A509E00D5B850 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F49A82A3A509E00D5B850 /* Category.swift */; };
+		B26DD36E2A3E382F0088DA98 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DD36D2A3E382F0088DA98 /* TabBarView.swift */; };
+		B26DD3732A3E66F70088DA98 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DD3722A3E66F70088DA98 /* RoundedCorners.swift */; };
 		B28388402A37ABAB0001FCBB /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B283883F2A37ABAB0001FCBB /* BackButton.swift */; };
 		B28388492A37B1F40001FCBB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28388482A37B1F40001FCBB /* Launch Screen.storyboard */; };
 		B2A9C8E22A375A3D0015F28F /* ListifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A9C8E12A375A3D0015F28F /* ListifyApp.swift */; };
@@ -43,12 +46,18 @@
 		B2CFB4432A38DA19004EDC00 /* DatePickerString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB4422A38DA19004EDC00 /* DatePickerString.swift */; };
 		B2CFB4462A38E7AE004EDC00 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B2CFB4452A38E7AE004EDC00 /* SDWebImage */; };
 		B2CFB4632A38F3BF004EDC00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2CFB4652A38F3BF004EDC00 /* Localizable.strings */; };
+		B2CFB46C2A3911DE004EDC00 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CFB46B2A3911DE004EDC00 /* LanguageManager.swift */; };
+		B2FC2E6B2A3F89CD001D0123 /* PlaceholderTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC2E6A2A3F89CD001D0123 /* PlaceholderTextEditor.swift */; };
+		B2FE514F2A3F0BA6002D301E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B2FE514E2A3F0BA6002D301E /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B213727C2A384DB4000E94E1 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		B213727F2A384DCA000E94E1 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
 		B21372812A38678A000E94E1 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B25F49A82A3A509E00D5B850 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B26DD36D2A3E382F0088DA98 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		B26DD3722A3E66F70088DA98 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		B283883F2A37ABAB0001FCBB /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		B28388482A37B1F40001FCBB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B2A9C8DE2A375A3D0015F28F /* Listify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +87,8 @@
 		B2CFB4422A38DA19004EDC00 /* DatePickerString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerString.swift; sourceTree = "<group>"; };
 		B2CFB4642A38F3BF004EDC00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B2CFB4662A38F3C5004EDC00 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B2CFB46B2A3911DE004EDC00 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		B2FC2E6A2A3F89CD001D0123 /* PlaceholderTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FE514F2A3F0BA6002D301E /* IQKeyboardManagerSwift in Frameworks */,
 				B2CFB4462A38E7AE004EDC00 /* SDWebImage in Frameworks */,
 				B2A9C8F12A375B220015F28F /* FirebaseAuth in Frameworks */,
 				B2A9C8F32A375B220015F28F /* FirebaseFirestore in Frameworks */,
@@ -135,6 +147,22 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B26DD36C2A3E38130088DA98 /* TabbarViews */ = {
+			isa = PBXGroup;
+			children = (
+				B26DD36D2A3E382F0088DA98 /* TabBarView.swift */,
+			);
+			path = TabbarViews;
+			sourceTree = "<group>";
+		};
+		B26DD3712A3E665C0088DA98 /* RoundedCorners */ = {
+			isa = PBXGroup;
+			children = (
+				B26DD3722A3E66F70088DA98 /* RoundedCorners.swift */,
+			);
+			path = RoundedCorners;
 			sourceTree = "<group>";
 		};
 		B283883E2A37AB9C0001FCBB /* BackButton */ = {
@@ -212,6 +240,7 @@
 			children = (
 				B2A9C92D2A3761BB0015F28F /* User.swift */,
 				B2A9C92F2A3761C60015F28F /* ListItem.swift */,
+				B25F49A82A3A509E00D5B850 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,11 +259,15 @@
 		B2A9C91A2A37602F0015F28F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B26DD3712A3E665C0088DA98 /* RoundedCorners */,
+				B26DD36C2A3E38130088DA98 /* TabbarViews */,
+				B2CFB46A2A3911CF004EDC00 /* LanguageManager */,
 				B2CFB4412A38DA07004EDC00 /* DatePickerString */,
 				B283883E2A37AB9C0001FCBB /* BackButton */,
 				B2A9C94C2A376F4D0015F28F /* TLButton */,
 				B2A9C9492A3767090015F28F /* HeaderView */,
 				B21372832A38678F000E94E1 /* ImagePicker */,
+				B2FC2E6A2A3F89CD001D0123 /* PlaceholderTextEditor.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -446,6 +479,14 @@
 			path = DatePickerString;
 			sourceTree = "<group>";
 		};
+		B2CFB46A2A3911CF004EDC00 /* LanguageManager */ = {
+			isa = PBXGroup;
+			children = (
+				B2CFB46B2A3911DE004EDC00 /* LanguageManager.swift */,
+			);
+			path = LanguageManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -469,6 +510,7 @@
 				B21372852A386AAD000E94E1 /* URLImage */,
 				B21372882A387265000E94E1 /* FirebaseStorage */,
 				B2CFB4452A38E7AE004EDC00 /* SDWebImage */,
+				B2FE514E2A3F0BA6002D301E /* IQKeyboardManagerSwift */,
 			);
 			productName = Listify;
 			productReference = B2A9C8DE2A375A3D0015F28F /* Listify.app */;
@@ -503,6 +545,7 @@
 				B2A9C8EF2A375B220015F28F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B21372842A386AAD000E94E1 /* XCRemoteSwiftPackageReference "url-image" */,
 				B2CFB4442A38E7AE004EDC00 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B2FE514D2A3F0BA5002D301E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = B2A9C8DF2A375A3D0015F28F /* Products */;
 			projectDirPath = "";
@@ -534,6 +577,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2A9C9392A3762160015F28F /* ListVM.swift in Sources */,
+				B2CFB46C2A3911DE004EDC00 /* LanguageManager.swift in Sources */,
+				B26DD36E2A3E382F0088DA98 /* TabBarView.swift in Sources */,
 				B2A9C94B2A37671A0015F28F /* HeaderView.swift in Sources */,
 				B2A9C9302A3761C60015F28F /* ListItem.swift in Sources */,
 				B2A9C9132A375FCA0015F28F /* LoginView.swift in Sources */,
@@ -546,6 +591,7 @@
 				B21372802A384DCA000E94E1 /* EditProfileVM.swift in Sources */,
 				B2A9C9182A375FFA0015F28F /* RegisterView.swift in Sources */,
 				B2A9C90D2A375F960015F28F /* CreateNewItemView.swift in Sources */,
+				B2FC2E6B2A3F89CD001D0123 /* PlaceholderTextEditor.swift in Sources */,
 				B2A9C93D2A37625A0015F28F /* RegisterVM.swift in Sources */,
 				B2A9C92E2A3761BB0015F28F /* User.swift in Sources */,
 				B2A9C91C2A37604F0015F28F /* ListItemView.swift in Sources */,
@@ -553,8 +599,10 @@
 				B2A9C9512A377C1C0015F28F /* Encodable+Extension.swift in Sources */,
 				B2A9C8E22A375A3D0015F28F /* ListifyApp.swift in Sources */,
 				B2A9C9092A375F490015F28F /* ListView.swift in Sources */,
+				B26DD3732A3E66F70088DA98 /* RoundedCorners.swift in Sources */,
 				B2A9C9362A3762060015F28F /* ProfileVM.swift in Sources */,
 				B2A9C9332A3761F80015F28F /* CreateNewItemVM.swift in Sources */,
+				B25F49A92A3A509E00D5B850 /* Category.swift in Sources */,
 				B21372822A38678A000E94E1 /* ImagePicker.swift in Sources */,
 				B2A9C9402A37626C0015F28F /* LoginVM.swift in Sources */,
 				B2A9C9432A37627D0015F28F /* MainVM.swift in Sources */,
@@ -800,6 +848,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B2FE514D2A3F0BA5002D301E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -832,6 +888,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B2CFB4442A38E7AE004EDC00 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		B2FE514E2A3F0BA6002D301E /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2FE514D2A3F0BA5002D301E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

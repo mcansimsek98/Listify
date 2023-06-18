@@ -39,3 +39,25 @@ struct HeaderView_Previews: PreviewProvider {
         HeaderView(title: "Title", subTitle: "Subtitle", angle: 15, backgrundColor: .blue)
     }
 }
+
+
+struct CustomHeaderView: View {
+    var title: LocalizedStringKey
+    
+    var body: some View {
+        ZStack {
+            Color.gray.opacity(12)
+                .frame(height: 125)
+                .clipShape(
+                    RoundedCorners(corners: [.bottomLeft, .bottomRight], radius: 18)
+                )
+            
+            Text(title)
+                .font(.custom("Noteworthy", size: 40))
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .offset(y: 20)
+        }
+        .edgesIgnoringSafeArea(.top)
+    }
+}

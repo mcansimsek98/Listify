@@ -11,31 +11,62 @@ struct ProfileView: View {
     @StateObject var viewModel = ProfileVM()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if let user = viewModel.user {
-                    profile(user: user)
-                }else {
-                    Text(LocalizedStringKey("loading_profile"))
-                }
-            }
-            .navigationTitle(LocalizedStringKey("profile"))
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button(LocalizedStringKey("log_out")) {
-                        viewModel.logOut()
+        ZStack {
+            Color(UIColor.systemGray5)
+            VStack(alignment: .center) {
+                CustomHeaderView(title: LocalizedStringKey("profile"))
+                VStack {
+                    if let user = viewModel.user {
+                        profile(user: user)
+                    }else {
+                        Text(LocalizedStringKey("loading_profile"))
                     }
-                    .tint(.red)
                 }
-                
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(LocalizedStringKey("edit")) {
-                        viewModel.showingEditView = true
-                    }
-                    .bold()
-                    .tint(.teal)
-                }
+                Spacer()
             }
+            .onAppear {
+                viewModel.fetchUser()
+            }
+            .padding(.top, -40)
+        }
+    }
+    
+    @ViewBuilder
+    func profile(user: User) -> some View {
+        // Avatar
+        VStack {
+            if let imageUrl = viewModel.user?.profilePhoto {
+                AsyncImage(url: imageUrl) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.teal, lineWidth: 2))
+                } placeholder: {
+                    Image(systemName: "person.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(Color.teal)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.teal, lineWidth: 2))
+                }
+            } else {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color.teal)
+                    .frame(width: 150, height: 150)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.teal, lineWidth: 2))
+            }
+            Button(LocalizedStringKey("edit_profile")) {
+                viewModel.showingEditView = true
+            }
+            .bold()
+            .font(.system(size: 12))
+            .tint(.teal)
             .fullScreenCover(isPresented: $viewModel.showingEditView) {
                 EditProfileView(editProfilePresented: $viewModel.showingEditView)
                     .onDisappear {
@@ -43,40 +74,7 @@ struct ProfileView: View {
                     }
             }
         }
-        .onAppear {
-            viewModel.fetchUser()
-        }
-    }
-    
-    @ViewBuilder
-    func profile(user: User) -> some View {
-        // Avatar
-        if let imageUrl = viewModel.user?.profilePhoto {
-            AsyncImage(url: imageUrl) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 125, height: 125)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.teal, lineWidth: 2))
-            } placeholder: {
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color.teal)
-                    .frame(width: 125, height: 125)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.teal, lineWidth: 2))
-            }
-        } else {
-            Image(systemName: "person.circle")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(Color.teal)
-                .frame(width: 125, height: 125)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.teal, lineWidth: 2))
-        }
+        .padding()
         // Info
         VStack(alignment: .leading) {
             HStack {
@@ -84,14 +82,14 @@ struct ProfileView: View {
                     .bold()
                 Text(user.name)
             }
-            .padding()
+            .padding(.bottom, 10)
             HStack {
                 Text(LocalizedStringKey("email"))
                     .bold()
                 Text(user.email)
             }
-            .padding()
-            
+            .padding(.bottom, 10)
+
             if let birthday = viewModel.user?.birthday,
                !birthday.trimmingCharacters(in: .whitespaces).isEmpty {
                 HStack {
@@ -99,7 +97,7 @@ struct ProfileView: View {
                         .bold()
                     Text(birthday)
                 }
-                .padding()
+                .padding(.bottom, 10)
             }
             
             if let location = viewModel.user?.location,
@@ -109,7 +107,7 @@ struct ProfileView: View {
                         .bold()
                     Text(location)
                 }
-                .padding()
+                .padding(.bottom, 10)
             }
             
             HStack {
@@ -117,11 +115,19 @@ struct ProfileView: View {
                     .bold()
                 Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
             }
-            .padding()
-            
+            .padding(.bottom, 10)
+
         }
-        .padding()
+        .padding(.top, 30)
+        .padding(.leading, -40)
         Spacer()
+        
+        Button(LocalizedStringKey("log_out")) {
+            viewModel.logOut()
+        }
+        
+        .tint(.red)
+        .padding(.bottom, 20)
     }
 }
 

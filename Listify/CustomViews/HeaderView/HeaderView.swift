@@ -46,8 +46,8 @@ struct CustomHeaderView: View {
     
     var body: some View {
         ZStack {
-            Color.gray.opacity(12)
-                .frame(height: 125)
+            Color.gray
+                .frame(height: UIScreen.main.bounds.size.height * 0.146)
                 .clipShape(
                     RoundedCorners(corners: [.bottomLeft, .bottomRight], radius: 18)
                 )
@@ -57,6 +57,7 @@ struct CustomHeaderView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .offset(y: 20)
+                .padding(.bottom, 15)
         }
         .edgesIgnoringSafeArea(.top)
     }

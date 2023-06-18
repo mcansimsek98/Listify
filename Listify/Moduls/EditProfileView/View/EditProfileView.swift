@@ -36,15 +36,18 @@ struct EditProfileView: View {
                     }
                 }
                 ZStack {
-                    VStack {
-                        if let user = viewModel.user {
-                            profile(user: user)
-                        }else {
-                            Text(LocalizedStringKey("loading_profile"))
-                            Spacer()
+                    ScrollView {
+                        VStack {
+                            if let user = viewModel.user {
+                                profile(user: user)
+                            }else {
+                                Text(LocalizedStringKey("loading_profile"))
+                                Spacer()
+                            }
                         }
+                        Spacer()
                     }
-                    Spacer()
+                    .scrollIndicators(.never)
                 }
             }
             .onAppear {

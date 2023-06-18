@@ -15,25 +15,37 @@ struct ProfileView: View {
             Color(UIColor.systemGray5)
             VStack(alignment: .center) {
                 CustomHeaderView(title: LocalizedStringKey("profile"))
-                VStack {
-                    if let user = viewModel.user {
-                        profile(user: user)
-                    }else {
-                        Text(LocalizedStringKey("loading_profile"))
+                ScrollView {
+                    VStack {
+                        if let user = viewModel.user {
+                            profile(user: user)
+                        }else {
+                            Text(LocalizedStringKey("loading_profile"))
+                        }
                     }
+                    Spacer()
                 }
-                Spacer()
+                .scrollIndicators(.never)
+                .onAppear {
+                    viewModel.fetchUser()
+                }
             }
-            .onAppear {
-                viewModel.fetchUser()
-            }
-            .padding(.top, -40)
         }
+        .edgesIgnoringSafeArea(.all)
     }
-    
+}
+
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView()
+    }
+}
+
+//MARK: ViewBuilder
+extension ProfileView {
     @ViewBuilder
     func profile(user: User) -> some View {
-        // Avatar
+        /// Avatar
         VStack {
             if let imageUrl = viewModel.user?.profilePhoto {
                 AsyncImage(url: imageUrl) { image in
@@ -75,7 +87,7 @@ struct ProfileView: View {
             }
         }
         .padding()
-        // Info
+        /// Info
         VStack(alignment: .leading) {
             HStack {
                 Text(LocalizedStringKey("title"))
@@ -116,23 +128,24 @@ struct ProfileView: View {
                 Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
             }
             .padding(.bottom, 10)
-
         }
         .padding(.top, 30)
-        .padding(.leading, -40)
         Spacer()
-        
-        Button(LocalizedStringKey("log_out")) {
+        ///Logout Btn
+        Button(action: {
             viewModel.logOut()
+            
+        }) {
+            Text(LocalizedStringKey("log_out"))
+                .font(.system(size: 15))
+                .foregroundColor(.red)
+                .padding(8)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 2)
+                )
         }
-        
-        .tint(.red)
         .padding(.bottom, 20)
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
     }
 }

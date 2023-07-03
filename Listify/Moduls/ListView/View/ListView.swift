@@ -18,13 +18,22 @@ struct ListView: View {
         self._items = FirestoreQuery(collectionPath: "users/\(userId)/todos")
     }
     
+    var sortedListItems: [ListItem] {
+        return items.sorted(by: {$0.dueDate > $1.dueDate})
+    }
+    
     var filteredItemsIsDone: [ListItem] {
-        return items.filter {$0.isDone == false }
+        let calendar = Calendar.current
+        let currentDate = calendar.startOfDay(for: Date())
+        
+        return sortedListItems.filter { item in
+            item.isDone == false && Date(timeIntervalSince1970: item.dueDate) >= currentDate
+        }
     }
     
     var filteredItems: [ListItem] {
         let selectedCategory = $viewModel.categories[viewModel.selectedCategoryIndex].wrappedValue
-        return viewModel.selectedCategoryIndex == 0 ? items : items.filter {$0.categoryName == selectedCategory.title }
+        return viewModel.selectedCategoryIndex == 0 ? sortedListItems : sortedListItems.filter {$0.categoryName == selectedCategory.title }
     }
     
     var groupedItems: [String: [ListItem]] {
@@ -132,6 +141,7 @@ extension ListView {
                                             }
                                             .tint(.red)
                                         }
+                                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
                                 }
                                 .listRowBackground(Color(.init(red: 237.0/255.0, green: 237.0/255.0, blue: 237.0/255.0, alpha: 1.0)))
                             }

@@ -13,12 +13,34 @@ struct ListItemView: View {
     
     var body: some View {
         HStack {
+            let calendar = Calendar.current
+            let currentDate = calendar.startOfDay(for: Date())
+            let dueDate = Date(timeIntervalSince1970: item.dueDate)
+            let dueDateStartOfDay = calendar.startOfDay(for: dueDate)
+            
+            let isDueDatePassed = dueDateStartOfDay >= currentDate
+            Rectangle()
+                .fill(isDueDatePassed ? Color.green : Color.red)
+                .frame(width: 10)
+            
             VStack(alignment: .leading) {
                 Text(item.title)
-                    .font(.body)
-                Text("\(Date(timeIntervalSince1970: item.dueDate).formatted(date: .abbreviated, time: .shortened))")
-                    .font(.footnote)
-                    .foregroundColor(Color(.secondaryLabel))
+                    .font(.system(size: 17))
+                    .bold()
+                    .padding(.top, 8)
+                Text(item.body)
+                    .font(.system(size: 14))
+                    .padding(.bottom, 2)
+                HStack {
+                    Image(systemName: "calendar")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 15, height: 15)
+                    Text("\(Date(timeIntervalSince1970: item.dueDate).formatted(date: .abbreviated, time: .omitted))")
+                        .font(.footnote)
+                        .foregroundColor(Color(.secondaryLabel))
+                }
+                Spacer()
             }
             
             Spacer()
@@ -35,6 +57,6 @@ struct ListItemView: View {
 
 struct ToDoListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemView(item: .init(id: "", title: "", dueDate: Date().timeIntervalSince1970, createDate: Date().timeIntervalSince1970, categoryName: "", isDone: false))
+        ListItemView(item: .init(id: "", title: "", body: "", dueDate: Date().timeIntervalSince1970, createDate: Date().timeIntervalSince1970, categoryName: "", isDone: false))
     }
 }

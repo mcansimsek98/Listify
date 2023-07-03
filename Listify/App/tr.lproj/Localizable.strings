@@ -28,6 +28,7 @@
 "home" = "Anasayfa";
 "new_plan" = "Yeni Plan";
 "enter_plan" = "Plan ya da Görev Giriniz..";
+"enter_title" = "Başlık Giriniz..";
 "save" = "Kaydet";
 "due_date" = "Bitiş tarihi:";
 "error" = "Hata";

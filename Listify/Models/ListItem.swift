@@ -10,6 +10,7 @@ import Foundation
 struct ListItem: Codable, Identifiable {
     let id: String
     let title: String
+    let body: String
     let dueDate: TimeInterval
     let createDate: TimeInterval
     let categoryName: String

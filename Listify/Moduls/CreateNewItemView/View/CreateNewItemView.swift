@@ -45,15 +45,17 @@ struct CreateNewItemView: View {
                     
                     Section {
                         // Title
-//                        TextField(LocalizedStringKey("enter_plan"), text: $viewModel.title)
-                        PlaceholderTextEditor(placeholder: LocalizedStringKey("enter_plan"), text: $viewModel.title)
+                        TextField(LocalizedStringKey("enter_title"), text: $viewModel.title)
+                            .font(.system(size: 15))
+                        
+                        // Body
+                        PlaceholderTextEditor(placeholder: LocalizedStringKey("enter_plan"), text: $viewModel.body)
                             .frame(height: 250)
-
                     }
                     
                     Section {
                         // Due Date
-                        DatePicker.init(LocalizedStringKey("due_date"), selection: $viewModel.dueDate)
+                        DatePicker(LocalizedStringKey("due_date"), selection: $viewModel.dueDate, in: Date()..., displayedComponents: [.date])
                             .datePickerStyle(.compact)
                             .padding(4)
                         // Button

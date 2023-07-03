@@ -28,6 +28,7 @@
 "home" = "Home";
 "new_plan" = "New Plan";
 "enter_plan" = "Enter Task or Plan..";
+"enter_title" = "Enter Title..";
 "save" = "Save";
 "due_date" = "Due Date:";
 "error" = "Error";

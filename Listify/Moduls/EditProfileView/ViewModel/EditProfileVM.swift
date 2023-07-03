@@ -66,15 +66,15 @@ class EditProfileVM: ObservableObject {
     func editProfileData() {
         guard let user = user else { return }
         loadImage { [weak self] url in
-            var url: URL?
+            var newProfilePhotoURL: URL?
             if let imageUrl = url {
-                url = imageUrl
+                newProfilePhotoURL = imageUrl
             } else {
-                url = self?.profilePhoto
+                newProfilePhotoURL = self?.profilePhoto
             }
             
             let editedUser = User(id: user.id,
-                                  profilePhoto: url,
+                                  profilePhoto: newProfilePhotoURL,
                                   name: self?.name ?? user.name,
                                   email: user.email,
                                   birthday: self?.birthday,

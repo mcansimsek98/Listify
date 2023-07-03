@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class CreateNewItemVM: ObservableObject {
     @Published var title: String = ""
+    @Published var body: String = ""
     @Published var dueDate = Date()
     @Published var showAlert: Bool = false
     
@@ -36,6 +37,7 @@ class CreateNewItemVM: ObservableObject {
         let newId = UUID().uuidString
         let newItem = ListItem(id: newId,
                                title: title,
+                               body: body,
                                dueDate: dueDate.timeIntervalSince1970,
                                createDate: Date().timeIntervalSince1970,
                                categoryName: categories[selectedCategoryIndex],
@@ -51,6 +53,9 @@ class CreateNewItemVM: ObservableObject {
     
     var canSave: Bool {
         guard !title.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return false
+        }
+        guard !body.trimmingCharacters(in: .whitespaces).isEmpty else {
             return false
         }
         
